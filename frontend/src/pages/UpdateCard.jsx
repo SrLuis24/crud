@@ -15,7 +15,7 @@ export default function UpdateCard() {
     useEffect(() => {
       const selectCard = async () => {
         try {
-          const response = await fetch(`http://localhost:4000/select/${id}`);
+          const response = await fetch(`https://api-production-a9d5.up.railway.app/select/${id}`);
           if (!response.ok) {
             throw new Error("Error en la conexión");
           }
@@ -41,7 +41,7 @@ export default function UpdateCard() {
 
         const modificarCard = async (id) => {
           try {
-            const response = await fetch(`http://localhost:4000/update/${id}`, {
+            const response = await fetch(`https://api-production-a9d5.up.railway.app/update/${id}`, {
               method: "PUT",
               headers: {
                 "Content-Type": "application/json",

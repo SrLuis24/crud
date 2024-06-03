@@ -13,7 +13,7 @@ export default function Home() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:4000/");
+      const response = await fetch("https://api-production-a9d5.up.railway.app/");
       if (!response.ok) {
         throw new Error("Error en la conexión");
       }

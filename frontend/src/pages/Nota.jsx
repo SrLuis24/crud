@@ -16,7 +16,7 @@ export default function Nota() {
     useEffect(() => {
         const selectCard = async () => {
           try {
-            const response = await fetch(`http://localhost:4000/select/${id}`);
+            const response = await fetch(`https://api-production-a9d5.up.railway.app/select/${id}`);
             if (!response.ok) {
               throw new Error("Error en la conexión");
             }
@@ -34,7 +34,7 @@ export default function Nota() {
     const act = () => {      
       const updateFavorite = async (id, favorito) => {
       try {
-        const response = await fetch(`http://localhost:4000/favorite/${id}`, {
+        const response = await fetch(`https://api-production-a9d5.up.railway.app/favorite/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ export default function Nota() {
 
         const deleteCard= async (id) => {
       try {
-        const response = await fetch(`http://localhost:4000/delete/${id}`,  {
+        const response = await fetch(`https://api-production-a9d5.up.railway.app/delete/${id}`,  {
             method: 'DELETE',
         });
 

@@ -1,19 +1,27 @@
 import express from "express";
 import mysql from "mysql2";
 import cors from 'cors';
+import {
+  PORT,
+  DB_HOST,
+  DB_NAME,
+  DB_PASSWORD,
+  DB_USER,
+  DB_PORT
+} from './config.js';
 
 const app = express();
-const PORT = 4000;
 
 app.use(express.json());
 app.use(cors());
 
 
 const database = mysql.createConnection({
-    host: "sql312.infinityfree.com",
-    user: "if0_36662414",
-    password: "8z3WDydQpKU8L",
-    database: "if0_36662414_notas"
+    host: DB_HOST,
+    user: DB_USER,
+    port: DB_PORT,
+    password: DB_PASSWORD,
+    database: DB_NAME
 })
 
 database.connect((err) => {
@@ -90,6 +98,7 @@ app.delete('/delete/:id', (req, res) => {
     const id = parseInt(req.params.id);
     
     database.query(sql, [id], (err, data) => {
+        console.log("si")
         if(err) return res.json(err);
         return res.json("deleted");
     })

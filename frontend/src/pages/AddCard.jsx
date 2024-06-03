@@ -15,10 +15,10 @@ export default function AddCard() {
     if (titulo === "") return;
     if (contenido === "") return;
     if (color === "") return;
-
+    
     const crearCard = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/create`, {
+        const response = await fetch(`https://api-production-a9d5.up.railway.app/create`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

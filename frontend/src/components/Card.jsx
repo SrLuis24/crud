@@ -14,7 +14,7 @@ export default function Card({id, color, titulo, text, date, favoritoC}) {
     const act = () => {      
       const updateFavorite = async (id, favorito) => {
       try {
-        const response = await fetch(`http://localhost:4000/favorite/${id}`, {
+        const response = await fetch(`https://api-production-a9d5.up.railway.app/favorite/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ export default function Card({id, color, titulo, text, date, favoritoC}) {
 
         const deleteCard= async (id) => {
       try {
-        const response = await fetch(`http://localhost:4000/delete/${id}`,  {
+        const response = await fetch(`https://api-production-a9d5.up.railway.app/delete/${id}`,  {
             method: 'DELETE',
         });
 
