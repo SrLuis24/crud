@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#root {
+  background-color: #FFF;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.sidebar {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #FAFAFA;
+  width: 225px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sidebar::before {
+  content: "";
+  background-color: red;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  height: 0.75px;
+}
+
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sidebar .logo span {
+  transition: 0.25s ease-in-out;
+  display: inline-block;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 7px;
+  color: #ddd;
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.8),
+    1px 1px 0px rgba(0, 0, 0, 0.8),
+    2px 2px 0px rgba(0, 0, 0, 0.8),
+    3px 3px 0px rgba(0, 0, 0, 0.8),
+    4px 4px 0px rgba(0, 0, 0, 0.8),
+    5px 5px 0px rgba(0, 0, 0, 0.8);
+}
+
+.sidebar .logo:hover span:nth-child(1) {
+  transform: translate(-4px, -2px) rotate(-10deg);
+}
+
+.sidebar .logo:hover span:nth-child(2) {
+  transform: translate(-3px, 1px) rotate(8deg);
+}
+
+.sidebar .logo:hover span:nth-child(3) {
+  transform: translate(-2px, -2px) rotate(-4deg);
+}
+
+.sidebar .logo:hover span:nth-child(4) {
+  transform: translate(-3px, 1px) rotate(-8deg);
+}
+
+.sidebar .actions {
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sidebar .actions .addCard {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #151515;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+.sidebar .actions .addCard:hover {
+  scale: 1.1;
+}
+
+.sidebar .links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0px;
+}
+
+.sidebar .links a {
+  text-decoration: none;
+  text-align: center;
+  color: #333333ee;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 110%;
+  transition: 0.3s ease-in-out;
+  border: 1.2px solid #3838E677;
+  overflow: hidden;
+}
+
+.sidebar .links a:hover {
+  background-color: #3838E6;
+  color: #FAFAFA;
+}
+
+.sidebar .links a.active {
+  background-color: #3838E6;
+  color: #FAFAFA;
+}
+
+
+
+/* CONTENT */
+.content {
+  width: 100%;
+  height: 100%;
+  padding: 25px 35px;
+}
+
+.content .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content h1 {
+  margin-bottom: 15px;
+}
+
+.content .header .filter {
+  border: none;
+  background-color: transparent;
+  margin-right: 10%;
+  
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.content .header .filter::before {
+  content: '';
+  position: absolute;
+  width: calc(100% + 10px);
+  height: 2px;
+  bottom: -5px;
+  background-color: #ccc;
+}
+
+
+.content .header .filter .cuadro {
+  border: 1.5px solid #000;
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 5px;
+  display: grid;
+  place-content: center;
+}
+
+.content .header .filter .cuadro::before {
+  content: "";
+  width: 1.1em;
+  height: 1.1em;
+  border-radius: 5px;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #3838E6;
+}
+
+.content .header .filter .cuadro.active:before {
+  transform: scale(1);
+}
+
+.content-Card {
+  width: 250px;
+  height: 250px;
+
+}
+
+.card {
+  width: 250px;
+  height: 250px;
+  background-color: #FEC971;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  transition: 0.25s ease-in-out;
+}
+
+.mark {
+  position: absolute;
+  background-color: #151515;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: -40px;
+  top: 10px;
+  cursor: pointer;
+  visibility: hidden;
+  transition: 0.25s ease-in-out;
+}
+
+.content .cards {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
+  justify-content: flex-start;
+  transition: 0.25s ease-in-out;
+}
+
+.card:hover .mark {
+  visibility: visible;
+  transform: translate(-50px);
+}
+
+
+.card.favorite .mark {
+  visibility: visible;
+  transform: translate(-50px);
+  user-select: none;
+  color: #FFD000;
+}
+
+.card .container {
+  width: 100%;
+  height: 100%;
+}
+
+.card .container p {
+  width: 100%;
+  height: 100%;
+  text-wrap: wrap;
+  color: #000000aa;
+}
+
+.card .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card .footer .date {
+  /* color: #00000088; */
+  color: #00000088;
+  font-size: 0.8rem;
+}
+
+.card .footer .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.card .footer .buttons button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: #151515;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.25s ease;
+  user-select: none;
+}
+
+.card .footer .buttons .remove:hover {
+  background-color: #FF4739;
+}
+
+.card .footer .buttons .edit:hover,
+.card .footer .buttons .remove:hover {
+  scale: 1.2;
+}
+
+.card .footer .edit:hover {
+  background-color: #242424;
+}
+
+.view {
+    position: absolute;
+
+    transition: 2s ease-in-out;
+
+    /* top: 60%;
+    left: 50%; */
+    /* transform: translate(-56%, -26%); */
+    animation: big 1s forwards;
+    z-index: 2;
+}
+
+@keyframes big {
+  0% {
+    width: 250px;
+    height: 250px;
+  }
+  50% {
+    width: 50%;
+    height: 40vh;
+    transform: translateX(-5%);
+    
+  }
+  100% {
+    width: 100%;
+    height: 80vh;
+    left: 0;
+    transform: translateX(0);
+
+  }
+}
+
+@keyframes move {
+    0% {
+      transform: translate(0,0);
+      top: 30%;
+      left: 25%;
+    }
+    50% {
+      width: 50%;
+      height: 40vh;
+      top: 30%;
+      left: 25%;
+      transform: translate(calc(-50% - 10px), -26%);
+      
+    }
+    100% {
+      transform: translate(-56%, -26%);
+      top: 60%;
+      left: 50%;
+      width: 90%;
+      height: 80vh;
+    }
+}
+
+
+/* Crear Nota */
+
+.addNote {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: auto 20px;
+}
+
+.addNote .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.addNote .container .inputs {
+  display: flex;
+  gap: 20px;
+}
+
+.addNote .container .inputs input {
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #00000055;
+  appearance: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s ease-in-out;
+}
+
+.addNote .container .inputs input:is(:checked) {
+  accent-color: #000;
+  content: "a";
+  border: 2px solid #000;
+  scale: 1.1;
+  border-radius: 50%;
+}
+
+.addNote .container .inputs input:nth-child(1) {
+  background-color: #FE9B72;
+}
+
+.addNote .container .inputs input:nth-child(2) {
+  background-color: #E3EF8F;
+}
+
+.addNote .container .inputs input:nth-child(3) {
+  background-color: #B693FD;
+}
+
+.addNote .container .inputs input:nth-child(4) {
+  background-color: #00D4FE;
+}
+
+
+
+.addNote .container label {
+  font-size: 1.2rem;
+  margin-left: 5px;
+}
+
+.addNote .container textarea {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* .addNote .container textarea {
+    border: 2px solid #3838E677;
+    background-color: #3838E6;
+} */
+
+.addNote .container #titulo {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.addNote .btnCrearNota {
+  background-color: transparent;
+  padding: 8px 0px;
+  color: #242424;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  transition: 0.3s ease-in-out;
+  border: 2px solid #3838E677;
+  font-weight: 600;
+}
+
+.addNote .btnCrearNota:hover {
+  background-color: #3838E6;
+  color: #FAFAFA;
+}
+
+.noVisible {
+  scale: 0;
+  user-select: none;
+}
+
+.oculto {
+  visibility: hidden;
+  display: none;
+}
